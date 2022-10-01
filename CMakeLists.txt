@@ -40,6 +40,7 @@ set(DUKTAPE_SRC
 # Library
 add_library(duktape STATIC ${DUKTAPE_SRC})
 target_include_directories(duktape PUBLIC ${duktape_SOURCE_DIR}/src)
+target_include_directories(duktape PUBLIC ${duktape_SOURCE_DIR}/extras)
 target_link_libraries(duktape PUBLIC ${DUKTAPE_DEPENDENCIES})
 
 # Examples
