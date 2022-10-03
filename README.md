@@ -4,6 +4,7 @@
 
 ## Usage
 
+### FindDuktape.cmake
 ``` cmake
 # Duktape
 include(FetchContent)
@@ -18,10 +19,17 @@ if (NOT duktapecmake_POPULATED)
     FetchContent_Populate(duktapecmake)
     add_subdirectory(${duktapecmake_SOURCE_DIR} ${duktapecmake_BINARY_DIR})
 endif()
+```
+
+### CMakeLists.txt
+``` cmake
+# Add the CMake Modules Path
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
+find_package(Duktake)
 
 # Application
-add_executable(MyProject main.c)
-target_link_libraries(MyProject PUBLIC duktape)
+add_executable(MyApp main.c)
+target_link_libraries(MyApp PUBLIC duktape)
 ```
 
 # License
