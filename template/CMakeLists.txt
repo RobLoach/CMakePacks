@@ -4,21 +4,22 @@ project(example)
 # Dependencies
 include(FetchContent)
 FetchContent_Declare(
-    duktapecmake
-    GIT_REPOSITORY https://github.com/robloach/duktape-cmake.git
-    GIT_TAG v2.7.0
+    CMakePacks
+    GIT_REPOSITORY https://github.com/robloach/CMakePacks.git
+    GIT_TAG master
 )
-FetchContent_GetProperties(duktapecmake)
-if (NOT duktapecmake_POPULATED)
+FetchContent_GetProperties(CMakePacks)
+if (NOT CMakePacks_POPULATED)
     set(FETCHCONTENT_QUIET NO)
-    FetchContent_Populate(duktapecmake)
-    add_subdirectory(${duktapecmake_SOURCE_DIR} ${duktapecmake_BINARY_DIR})
+    FetchContent_Populate(CMakePacks)
+    add_subdirectory(${CMakePacks_SOURCE_DIR} ${CMakePacks_BINARY_DIR})
 endif()
 
 # Library
-add_executable(${PROJECT_NAME}
+find_package(duktape)
+add_executable(MyApp
     main.c
 )
-target_link_libraries(${PROJECT_NAME} PUBLIC
+target_link_libraries(MyApp PUBLIC
     duktape
 )

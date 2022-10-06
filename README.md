@@ -1,27 +1,26 @@
-# Duktape CMake
+# CMake Packs
 
-[CMake](https://cmake.org/) definition file for [Duktape](https://duktape.org/).
+A set of [CMake Package](https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html) and modules for [CMake](https://cmake.org/).
 
 ## Usage
 
 ``` cmake
-# Duktape
+#CMakePacks
 include(FetchContent)
 FetchContent_Declare(
-    duktapecmake
-    GIT_REPOSITORY https://github.com/robloach/duktape-cmake.git
-    GIT_TAG v2.7.0
+    CMakePacks
+    GIT_REPOSITORY https://github.com/robloach/CMakePacks.git
+    GIT_TAG v0.0.1
 )
-FetchContent_GetProperties(duktapecmake)
-if (NOT duktapecmake_POPULATED)
+FetchContent_GetProperties(CMakePacks)
+if (NOT CMakePacks_POPULATED)
     set(FETCHCONTENT_QUIET NO)
-    FetchContent_Populate(duktapecmake)
-    add_subdirectory(${duktapecmake_SOURCE_DIR} ${duktapecmake_BINARY_DIR})
+    FetchContent_Populate(CMakePacks)
+    add_subdirectory(${CMakePacks_SOURCE_DIR} ${CMakePacks_BINARY_DIR})
 endif()
 
-# Application
-add_executable(MyProject main.c)
-target_link_libraries(MyProject PUBLIC duktape)
+# Example of getting Duktape
+find_package(Duktape)
 ```
 
 # License
