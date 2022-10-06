@@ -4,6 +4,7 @@ A set of [CMake Package](https://cmake.org/cmake/help/latest/manual/cmake-packag
 
 ## Usage
 
+### FindDuktape.cmake
 ``` cmake
 #CMakePacks
 include(FetchContent)
@@ -18,9 +19,22 @@ if (NOT CMakePacks_POPULATED)
     FetchContent_Populate(CMakePacks)
     add_subdirectory(${CMakePacks_SOURCE_DIR} ${CMakePacks_BINARY_DIR})
 endif()
+```
 
+### CMakeLists.txt
+``` cmake
+# Add the CMake Modules Path
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
+find_package(Duktake)
+
+<<<<<<< HEAD
 # Example of getting Duktape
 find_package(Duktape)
+=======
+# Application
+add_executable(MyApp main.c)
+target_link_libraries(MyApp PUBLIC duktape)
+>>>>>>> 9d445c7b7e0e4739dd6f04f6be61d50b39854001
 ```
 
 # License

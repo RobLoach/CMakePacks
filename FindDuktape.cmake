@@ -16,11 +16,11 @@ option(DUKTAPE_STATIC "Duktape: Build as shared" FALSE)
 # Duktape
 include(FetchContent)
 FetchContent_Declare(
-   Duktape
+   duktape
    GIT_REPOSITORY https://github.com/svaarala/duktape-releases.git
    GIT_TAG "v${Duktape_VERSION}"
 )
-FetchContent_MakeAvailable(Duktape)
+FetchContent_MakeAvailable(duktape)
 
 # Dependencies
 include(CheckLibraryExists)
@@ -32,10 +32,11 @@ if (HAVE_LIB_M)
 endif()
 
 # Sources
+set(DUKTAPE_SRC_DIR ${duktape_SOURCE_DIR}/src)
+set(DUKTAPE_EXTRAS_DIR ${duktape_SOURCE_DIR}/extras)
 set(DUKTAPE_SRC
-    ${duktape_SOURCE_DIR}/src/duktape.c
+    ${DUKTAPE_SRC_DIR}/duktape.c
 )
-set(Duktape_INCLUDE_DIR ${duktape_SOURCE_DIR}/src)
 
 # Library
 if (DUKTAPE_STATIC)
@@ -44,5 +45,6 @@ else()
     add_library(duktape STATIC ${DUKTAPE_SRC})
 endif()
 
-target_include_directories(duktape PUBLIC ${Duktape_INCLUDE_DIR})
+target_include_directories(duktape PUBLIC ${DUKTAPE_SRC_DIR})
+target_include_directories(duktape PUBLIC ${DUKTAPE_EXTRAS_DIR})
 target_link_libraries(duktape PUBLIC ${DUKTAPE_DEPENDENCIES})
