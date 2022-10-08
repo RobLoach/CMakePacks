@@ -21,6 +21,11 @@ if (NOT CMakePacks_POPULATED)
 endif()
 ```
 
-# License
+## Packages
+
+- duktape
+- raylib
+
+## License
 
 [MIT](LICENSE)

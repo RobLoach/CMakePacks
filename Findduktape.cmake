@@ -1,13 +1,13 @@
 set(DUKTAPE_DEFAULT_VERSION "2.7.0")
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(Duktape DEFAULT_MSG)
+find_package_handle_standard_args(duktape DEFAULT_MSG)
 
 # TODO: Fix version targeting
 if (PACKAGE_FIND_VERSION)
-    set(Duktape_VERSION "${PACKAGE_FIND_VERSION}")
+    set(duktape_VERSION "${PACKAGE_FIND_VERSION}")
 else()
-    set(Duktape_VERSION ${DUKTAPE_DEFAULT_VERSION})
+    set(duktape_VERSION ${DUKTAPE_DEFAULT_VERSION})
 endif()
 
 # Options
@@ -18,7 +18,7 @@ include(FetchContent)
 FetchContent_Declare(
    duktape
    GIT_REPOSITORY https://github.com/svaarala/duktape-releases.git
-   GIT_TAG "v${Duktape_VERSION}"
+   GIT_TAG "v${duktape_VERSION}"
 )
 FetchContent_MakeAvailable(duktape)
 
