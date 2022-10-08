@@ -11,7 +11,7 @@ else()
 endif()
 
 # Options
-option(DUKTAPE_STATIC "Duktape: Build as shared" FALSE)
+option(DUKTAPE_SHARED "Duktape: Build as shared" FALSE)
 
 # Duktape
 include(FetchContent)
@@ -39,7 +39,7 @@ set(DUKTAPE_SRC
 )
 
 # Library
-if (DUKTAPE_STATIC)
+if (DUKTAPE_SHARED)
     add_library(duktape SHARED ${DUKTAPE_SRC})
 else()
     add_library(duktape STATIC ${DUKTAPE_SRC})
