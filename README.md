@@ -4,7 +4,8 @@ A set of [CMake Package](https://cmake.org/cmake/help/latest/manual/cmake-packag
 
 ## Usage
 
-### FindDuktape.cmake
+Add the CMake definition files to your project by either copying them into your CMake Modules folder, or using FetchContent...
+
 ``` cmake
 #CMakePacks
 include(FetchContent)
@@ -20,6 +21,9 @@ if (NOT CMakePacks_POPULATED)
     add_subdirectory(${CMakePacks_SOURCE_DIR} ${CMakePacks_BINARY_DIR})
 endif()
 ```
+
+Afterwards, you'll be able to bring in the dependencies with `find_package(raylib)`.
+
 
 ## Packages
 
