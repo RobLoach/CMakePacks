@@ -23,8 +23,9 @@ endif()
 
 ## Packages
 
-- duktape
-- raylib
+- [`duktape`](https://github.com/svaarala/duktape)
+- [`raylib`](https://raylib.com)
+- [`umka`](https://github.com/vtereshkov/umka-lang)
 
 ## License
 
