@@ -10,15 +10,15 @@ Add the CMake definition files to your project by either copying them into your 
 #CMakePacks
 include(FetchContent)
 FetchContent_Declare(
-    CMakePacks
-    GIT_REPOSITORY https://github.com/robloach/CMakePacks.git
+    cmakepacks
+    GIT_REPOSITORY https://github.com/robloach/cmakepacks.git
     GIT_TAG v0.0.1
 )
-FetchContent_GetProperties(CMakePacks)
-if (NOT CMakePacks_POPULATED)
+FetchContent_GetProperties(cmakepacks)
+if (NOT cmakepacks_POPULATED)
     set(FETCHCONTENT_QUIET NO)
-    FetchContent_Populate(CMakePacks)
-    add_subdirectory(${CMakePacks_SOURCE_DIR} ${CMakePacks_BINARY_DIR})
+    FetchContent_Populate(cmakepacks)
+    add_subdirectory(${cmakepacks_SOURCE_DIR} ${cmakepacks_BINARY_DIR})
 endif()
 ```
 
