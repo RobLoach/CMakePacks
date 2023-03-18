@@ -1,4 +1,4 @@
-find_package(duktape 2.6.0)
+find_package(duktape 2.7.0)
 
 add_executable(duktape_example
     duktape_example.c
